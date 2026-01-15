@@ -1,0 +1,25 @@
+<!-- Desktop Header -->
+<div class="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 px-8 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+        <h1 class="text-2xl font-bold">Hello, <span x-text="userName" class="text-flamx-blue">Alexandra</span></h1>
+    </div>
+    <div class="flex items-center gap-6">
+        <!-- Online Toggle -->
+        <div class="flex items-center gap-3">
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" x-model="isOnline" class="rounded">
+                <span class="text-sm font-medium" x-text="isOnline ? 'Online' : 'Offline'" :class="isOnline ? 'text-flamx-green' : 'text-gray-500'"></span>
+            </label>
+        </div>
+        
+        <!-- Avatar -->
+        <div class="w-10 h-10 bg-gradient-to-br from-flamx-blue to-flamx-green rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+        </div>
+        
+        <!-- Logout -->
+        <button @click="logout()" class="text-sm text-gray-600 dark:text-gray-400 hover:text-flamx-blue">
+            Logout
+        </button>
+    </div>
+</div>

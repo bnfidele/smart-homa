@@ -1,0 +1,56 @@
+<!-- Right Panel - System Health Overview -->
+<div class="w-80 hidden lg:block space-y-6">
+    <div class="card">
+        <h3 class="font-semibold text-lg mb-6">Résumé Global</h3>
+        
+        <!-- Circular Gauge -->
+        <div class="flex justify-center mb-6">
+            <div class="relative w-40 h-40">
+                <svg class="w-full h-full" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" class="text-slate-200 dark:text-slate-700"/>
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" 
+                            stroke-dasharray="282.6" 
+                            :stroke-dasharray="`${systemHealth * 2.826} 282.6`"
+                            class="text-flamx-green transition-all duration-500"
+                            stroke-linecap="round"
+                            transform="rotate(-90 50 50)"/>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold" x-text="systemHealth + '%'"></span>
+                    <span class="text-xs text-gray-600 dark:text-gray-400">Santé</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Details -->
+        <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                <span class="text-sm">Capteurs Actifs</span>
+                <span class="font-semibold text-flamx-green">3/3</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                <span class="text-sm">Alertes Actives</span>
+                <span class="font-semibold text-flamx-red" x-text="activeAlerts">0</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                <span class="text-sm">Uptime</span>
+                <span class="font-semibold text-flamx-green">99.9%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card">
+        <h3 class="font-semibold text-lg mb-4">Actions Rapides</h3>
+        <div class="space-y-2">
+            <button @click="triggerAlert()" class="w-full bg-flamx-red text-white py-2 rounded-lg font-medium hover:bg-flamx-red/90 transition">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Déclencher Alerte
+            </button>
+            <button class="w-full bg-flamx-blue text-white py-2 rounded-lg font-medium hover:bg-flamx-blue/90 transition">
+                <i class="fas fa-phone mr-2"></i>
+                Appeler Secours
+            </button>
+        </div>
+    </div>
+</div>

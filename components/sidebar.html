@@ -1,0 +1,33 @@
+<!-- Desktop Sidebar -->
+<div class="w-20 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 flex flex-col items-center py-8 gap-6">
+    <!-- Logo -->
+    <div class="w-12 h-12 bg-gradient-to-br from-flamx-blue to-flamx-red rounded-lg flex items-center justify-center">
+        <i class="fas fa-fire text-white text-lg"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex flex-col gap-4">
+        <button @click="currentPage = 'dashboard'" :class="currentPage === 'dashboard' ? 'active' : ''" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue" title="Dashboard">
+            <i class="fas fa-gauge-high"></i>
+        </button>
+        <button @click="currentPage = 'statistics'" :class="currentPage === 'statistics' ? 'active' : ''" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue" title="Statistiques">
+            <i class="fas fa-chart-line"></i>
+        </button>
+        <button @click="currentPage = 'notifications'" :class="currentPage === 'notifications' ? 'active' : ''" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue" title="Notifications">
+            <i class="fas fa-bell"></i>
+        </button>
+        <button @click="currentPage = 'billing'" :class="currentPage === 'billing' ? 'active' : ''" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue" title="Paiement">
+            <i class="fas fa-credit-card"></i>
+        </button>
+        <button @click="currentPage = 'profile'" :class="currentPage === 'profile' ? 'active' : ''" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue" title="Profil">
+            <i class="fas fa-user-circle"></i>
+        </button>
+    </nav>
+
+    <!-- Dark Mode Toggle -->
+    <div class="mt-auto">
+        <button @click="darkMode = !darkMode" class="sidebar-icon text-gray-600 dark:text-gray-400 hover:text-flamx-blue dark:hover:text-flamx-blue">
+            <i class="fas" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+        </button>
+    </div>
+</div>
